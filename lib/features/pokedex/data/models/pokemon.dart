@@ -18,10 +18,19 @@ class Pokemon {
 
   factory Pokemon.fromJson(Map<String, dynamic> json) {
     return Pokemon(
-        id: json['id'],
-        name: json['name'],
-        sprite: json['sprites']['front_default'],
-        stats: json['stats'],
-        types: json['types']);
+      id: json['id'],
+      name: json['name'],
+      sprite: json['sprites']['front_default'],
+      stats: toListStatsPokemon(json['stats']),
+      types: toListTypePokemon(json['types']),
+    );
   }
+}
+
+List<StatsPokemon> toListStatsPokemon(List<dynamic> json) {
+  return json.map((data) => StatsPokemon.fromJson(data)).toList();
+}
+
+List<TypePokemon> toListTypePokemon(List<dynamic> json) {
+  return json.map((data) => TypePokemon.fromJson(data)).toList();
 }

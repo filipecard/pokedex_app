@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:pokedex_app/features/pokedex/presentation/utils/text_style.dart';
+import 'package:pokedex_app/features/pokedex/presentation/styles/text_style.dart';
 import '../../../../main.dart';
 
 Widget appBarTitle(BuildContext context) {

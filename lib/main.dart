@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:pokedex_app/features/pokedex/presentation/utils/text_style.dart';
-
+import 'package:pokedex_app/features/pokedex/constants.dart';
+import 'package:pokedex_app/features/pokedex/presentation/styles/text_style.dart';
 import 'features/pokedex/presentation/pages/list_pokemon.dart';
-import 'features/pokedex/presentation/utils/app_bar_title.dart';
+import 'features/pokedex/presentation/styles/app_bar_title.dart';
 
 void main() {
   runApp(const MyApp());
@@ -33,7 +33,6 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  final String _baseUrl = 'https://pokeapi.co/api/v2/pokemon/';
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -42,27 +41,28 @@ class _MyHomePageState extends State<MyHomePage> {
         automaticallyImplyLeading: false,
       ),
       body: Container(
+        padding: const EdgeInsets.only(left: 20, right: 20),
         width: double.infinity,
         height: double.infinity,
-        color: Colors.red[400],
         child: Column(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
             Container(
-              color: Colors.white24,
+              width: double.infinity,
+              color: Colors.red,
               child: TextButton(
                 onPressed: () {
                   Navigator.push(
                     context,
                     MaterialPageRoute(
                       builder: (context) => ListPokemon(
-                        baseUrl: _baseUrl,
+                        baseUrl: pokemonBaseUrl,
                       ),
                     ),
                   );
                 },
                 child: Text(
-                  "Lista pokemon",
+                  "Lista de Pokemons",
                   style: defaultTextStyle(),
                 ),
               ),

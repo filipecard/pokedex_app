@@ -1,15 +1,11 @@
 import 'dart:convert';
-import 'dart:ui';
-
 import 'package:flutter/material.dart';
-
 import 'package:http/http.dart' as http;
-import 'package:pokedex_app/features/pokedex/data/models/stats_pokemon.dart';
-import 'package:pokedex_app/features/pokedex/data/models/type_pokemon.dart';
-import 'package:pokedex_app/features/pokedex/presentation/utils/text_style.dart';
+import 'package:pokedex_app/features/pokedex/presentation/styles/text_style.dart';
 import '../../data/models/pokemon.dart';
-import '../utils/app_bar_title.dart';
+import '../styles/app_bar_title.dart';
 
+// ignore: must_be_immutable
 class PokemonInfo extends StatefulWidget {
   PokemonInfo({required this.baseUrl, Key? key}) : super(key: key);
   late String baseUrl;
@@ -54,34 +50,37 @@ class PokemonInfoState extends State<PokemonInfo> {
               if (snapshot.hasData) {
                 String pokeName = snapshot.data!.name;
                 String pokeSprite = snapshot.data!.sprite;
-                List<Widget> pokeStats = snapshot.data!.stats
-                    .map(
-                      (stats) => SizedBox(
-                        width: 250,
-                        child: ListTile(
-                          leading: Text(
-                            '${stats.name}:',
-                            style: defaultTextStyle(
-                                baseFontSize: 20, baseTextColor: Colors.red),
-                          ),
-                          title: Text(
-                            '${stats.baseStat}',
-                            style: defaultTextStyle(
-                                baseFontSize: 20, baseTextColor: Colors.green),
-                          ),
-                        ),
-                      ),
-                    )
-                    .toList();
 
                 List<Widget> pokeTypes = snapshot.data!.types
                     .map(
                       (type) => Container(
                         padding: const EdgeInsets.only(left: 10, right: 10),
                         child: Text(
-                          type.name,
+                          type.name.toUpperCase(),
                           style: defaultTextStyle(
-                              baseFontSize: 20, baseTextColor: Colors.black),
+                              baseFontSize: 20, baseTextColor: Colors.blueGrey),
+                        ),
+                      ),
+                    )
+                    .toList();
+
+                List<Widget> pokeStats = snapshot.data!.stats
+                    .map(
+                      (stats) => SizedBox(
+                        width: 250,
+                        child: ListTile(
+                          leading: Text(
+                            '${stats.name.toUpperCase()}:',
+                            style: defaultTextStyle(
+                                baseFontSize: 20,
+                                baseTextColor: Colors.blueGrey),
+                          ),
+                          title: Text(
+                            '${stats.baseStat}',
+                            style: defaultTextStyle(
+                                baseFontSize: 20,
+                                baseTextColor: Colors.lightGreen),
+                          ),
                         ),
                       ),
                     )
@@ -112,7 +111,6 @@ class PokemonInfoState extends State<PokemonInfo> {
                         ],
                       ),
                     ),
-                    const SizedBox(height: 10),
                     Container(
                       color: Colors.white,
                       child: Column(
@@ -120,8 +118,8 @@ class PokemonInfoState extends State<PokemonInfo> {
                         children: [
                           Container(
                             width: double.infinity,
-                            height: 50,
-                            color: Colors.red,
+                            height: 40,
+                            color: Colors.blueGrey,
                             child: Text(
                               "Status",
                               textAlign: TextAlign.center,

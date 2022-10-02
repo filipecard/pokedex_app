@@ -38,66 +38,76 @@ class ListPokemonState extends State<ListPokemon> {
   @override
   Widget build(BuildContext context) {
     return Container(
-        constraints: const BoxConstraints.expand(),
-        child: Scaffold(
-          appBar: AppBar(
-            title: appBarTitle(context),
-            automaticallyImplyLeading: false,
-          ),
-          body: FutureBuilder<List<SimplesPokemon>>(
-            future: futurePokemon,
-            builder: (context, snapshot) {
-              if (snapshot.hasData) {
-                List<Widget> listSimplesPokemon = snapshot.data!
-                    .map(
-                      (pokemon) => Container(
-                        padding: const EdgeInsets.all(5),
-                        child: TextButton(
-                          onPressed: () {
-                            Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                builder: (context) => PokemonInfo(
-                                  baseUrl: pokemon.url,
-                                ),
-                              ),
-                            );
-                          },
-                          child: Container(
-                            width: double.infinity,
-                            height: 30,
-                            color: Colors.red,
-                            child: Text(
-                              pokemon.name,
-                              style: defaultTextStyle(),
-                              textAlign: TextAlign.center,
-                            ),
-                          ),
-                        ),
-                      ),
-                    ) // subtitle: Text(e.url)
-                    .toList();
-                return ListView(
-                  children: [
-                    Column(children: listSimplesPokemon),
-                    Row(
-                      children: [
-                        buttonNextOrPrevious(previousPage, context, "Previous"),
-                        const SizedBox(width: 1),
-                        buttonNextOrPrevious(nextPage, context, "Next"),
-                      ],
-                    ),
-                  ],
-                );
-              } else if (snapshot.hasError) {
-                return Text('${snapshot.error}');
-              }
-              return const Center(
-                  child: CircularProgressIndicator(
-                color: Colors.white,
-              ));
+      constraints: const BoxConstraints.expand(),
+      child: Scaffold(
+        appBar: AppBar(
+          title: appBarTitle(context),
+          automaticallyImplyLeading: false,
+        ),
+        body: FutureBuilder<List<SimplesPokemon>>(
+          future: futurePokemon,
+          builder: (context, snapshot) {
+            if (snapshot.hasData) {
+              List<Widget> listSimplesPokemon =
+                  transformListSimplePokemonToListWidget(
+                      snapshot.data!, context);
+              return ListView(
+                children: [
+                  const SizedBox(height: 10),
+                  Column(children: listSimplesPokemon),
+                  const SizedBox(height: 10),
+                  Row(
+                    children: [
+                      buttonNextOrPrevious(previousPage, context, "Previous"),
+                      const SizedBox(width: 1),
+                      buttonNextOrPrevious(nextPage, context, "Next"),
+                    ],
+                  ),
+                ],
+              );
+            } else if (snapshot.hasError) {
+              return Text('${snapshot.error}');
+            }
+            return const Center(
+                child: CircularProgressIndicator(
+              color: Colors.white,
+            ));
+          },
+        ),
+      ),
+    );
+  }
+
+  List<Widget> transformListSimplePokemonToListWidget(
+      List<SimplesPokemon> list, BuildContext context) {
+    return list.map(
+      (pokemon) {
+        return Container(
+          padding: const EdgeInsets.all(5),
+          child: TextButton(
+            onPressed: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => PokemonInfo(
+                    baseUrl: pokemon.url,
+                  ),
+                ),
+              );
             },
+            child: Container(
+              width: double.infinity,
+              height: 40,
+              color: Colors.red,
+              child: Text(
+                pokemon.name.toUpperCase(),
+                style: defaultTextStyle(),
+                textAlign: TextAlign.center,
+              ),
+            ),
           ),
-        ));
+        );
+      },
+    ).toList(); // subtitle: Text(e.url)
   }
 }

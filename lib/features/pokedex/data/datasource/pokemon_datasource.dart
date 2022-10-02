@@ -1,10 +1,12 @@
 import 'dart:convert';
+import 'package:pokedex_app/features/pokedex/data/models/pokemon.dart';
 import 'package:pokedex_app/features/pokedex/data/utils/controller_page_pokemon.dart';
 import 'package:pokedex_app/features/pokedex/domain/entities/simple_pokemon.dart';
 import 'package:http/http.dart' as http;
 
 abstract class PokemonDataSource {
   Future<List<SimplesPokemon>> getSimplePokemon(String url);
+  Future<Pokemon> getDataPokemon(String url);
   Future<String> getNextOrPreviousPage(String url, String optionPage);
   Future<ControllerPagePokemon> getDataPagePokemon(String url);
 }
@@ -37,5 +39,16 @@ class PokemonDataSourceImpl implements PokemonDataSource {
     } else {
       return dataPage.previous;
     }
+  }
+
+  @override
+  Future<Pokemon> getDataPokemon(String url) async {
+    final response = await http.get(Uri.parse(url));
+    if (response.statusCode != 200) {
+      throw Exception('Falha ao carregar as informações do pokemon');
+    }
+
+    var jsonResponse = Pokemon.fromJson(jsonDecode(response.body));
+    return jsonResponse;
   }
 }

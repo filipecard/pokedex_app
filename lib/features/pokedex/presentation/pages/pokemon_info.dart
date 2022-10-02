@@ -1,6 +1,8 @@
 import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
+import 'package:pokedex_app/features/pokedex/constants.dart';
+import 'package:pokedex_app/features/pokedex/data/datasource/pokemon_datasource.dart';
 import 'package:pokedex_app/features/pokedex/presentation/styles/text_style.dart';
 import '../../data/models/pokemon.dart';
 import '../styles/app_bar_title.dart';
@@ -16,22 +18,12 @@ class PokemonInfo extends StatefulWidget {
 
 class PokemonInfoState extends State<PokemonInfo> {
   late Future<Pokemon> futurePokemon;
+  final PokemonDataSourceImpl dataSourceImpl = PokemonDataSourceImpl();
 
   @override
   void initState() {
-    futurePokemon = fetch();
+    futurePokemon = dataSourceImpl.getDataPokemon(widget.baseUrl);
     super.initState();
-  }
-
-  Future<Pokemon> fetch() async {
-    final response = await http.get(Uri.parse(widget.baseUrl));
-    if (response.statusCode != 200) {
-      throw Exception('Falha ao carregar a lista de pokemons');
-    }
-
-    var jsonResponseList = Pokemon.fromJson(jsonDecode(response.body));
-
-    return jsonResponseList;
   }
 
   @override
@@ -43,7 +35,7 @@ class PokemonInfoState extends State<PokemonInfo> {
           title: appBarTitle(context),
         ),
         body: Container(
-          color: Colors.red[400],
+          color: red700,
           child: FutureBuilder<Pokemon>(
             future: futurePokemon,
             builder: (context, snapshot) {

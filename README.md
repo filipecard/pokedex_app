@@ -25,7 +25,7 @@ Além do uso prático de Clean Code e Clean Architecture, associando esse conhec
   - No final da janela terá um/dois botões, de ir para próxima página ou voltar para página anterior.
   - Ao clicar no nome de um pokemon, a aplicação troca para outra janela, que apresenta informações base do pokemon.
  
-## -------------------------------------- English ---------------------------------------
+## ------------------------------------- English ---------------------------------------
 
 This is a Flutter project with the intention of testing skills and knowledge with the framework.
 In addition to the practical use of Clean Code and Clean Architecture, associating this knowledge with a topic I really like, Pokémon.

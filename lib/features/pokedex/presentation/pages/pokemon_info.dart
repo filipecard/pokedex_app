@@ -1,6 +1,4 @@
-import 'dart:convert';
 import 'package:flutter/material.dart';
-import 'package:http/http.dart' as http;
 import 'package:pokedex_app/features/pokedex/constants.dart';
 import 'package:pokedex_app/features/pokedex/data/datasource/pokemon_datasource.dart';
 import 'package:pokedex_app/features/pokedex/presentation/styles/text_style.dart';

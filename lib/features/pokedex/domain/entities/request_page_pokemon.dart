@@ -1,19 +1,19 @@
-import '../../domain/entities/simple_pokemon.dart';
+import 'simple_pokemon.dart';
 
-class ControllerPagePokemon {
+class RequestPagePokemon {
   final int count;
   final String next;
   final String previous;
   final List<SimplesPokemon> result;
 
-  ControllerPagePokemon(
+  RequestPagePokemon(
       {required this.count,
       required this.next,
       required this.previous,
       required this.result});
 
-  factory ControllerPagePokemon.fromJson(Map<String, dynamic> json) {
-    return ControllerPagePokemon(
+  factory RequestPagePokemon.fromJson(Map<String, dynamic> json) {
+    return RequestPagePokemon(
         count: json['count'],
         next: json['next'],
         previous: json['previous'].toString(),

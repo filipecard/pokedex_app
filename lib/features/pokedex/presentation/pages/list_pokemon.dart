@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:pokedex_app/features/pokedex/data/datasource/pokemon_datasource.dart';
+import 'package:pokedex_app/features/pokedex/data/controller/pokemon_controller.dart';
 import 'package:pokedex_app/features/pokedex/presentation/styles/text_style.dart';
 import '../../domain/entities/simple_pokemon.dart';
 import '../styles/app_bar_title.dart';
@@ -16,7 +16,8 @@ class ListPokemon extends StatefulWidget {
 }
 
 class ListPokemonState extends State<ListPokemon> {
-  final PokemonDataSourceImpl dataSourceImpl = PokemonDataSourceImpl();
+  final PokemonController _pokemonController = PokemonController();
+  // final PokemonDataSourceImpl dataSourceImpl = PokemonDataSourceImpl();
   late String nextPage;
   late String previousPage;
 
@@ -28,11 +29,11 @@ class ListPokemonState extends State<ListPokemon> {
     super.initState();
   }
 
-  Future<List<SimplesPokemon>> dataPopulation(String url) async {
-    nextPage = await dataSourceImpl.getNextOrPreviousPage(url, "N");
-    previousPage = await dataSourceImpl.getNextOrPreviousPage(url, "P");
+  Future<List<SimplesPokemon>> dataPopulation(String currentPage) async {
+    nextPage = await _pokemonController.getNextPage(currentPage);
+    previousPage = await _pokemonController.getPreviousPage(currentPage);
 
-    return dataSourceImpl.getSimplePokemon(url);
+    return await _pokemonController.getSimplesPokemonList(currentPage);
   }
 
   @override

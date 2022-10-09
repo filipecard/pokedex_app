@@ -1,7 +1,13 @@
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
 # <center>    ------------------------ Pokedex App ------------------------</center>
 
+### <a> <img src="https://cdn-icons-png.flaticon.com/512/197/197484.png" width="20" height="20"></img> [In English](#language-english)</a> 
 
-## ------------------------------------ Português -------------------------------------
+
+
+
+## ------------------------------------ <a id="language-portugues"> Português </a>-------------------------------------
 
 
 Esse é um projeto feito com Flutter com intenção de testar habilidades e conhecimentos com o framework.
@@ -25,7 +31,12 @@ Além do uso prático de Clean Code e Clean Architecture, associando esse conhec
   - No final da janela terá um/dois botões, de ir para próxima página ou voltar para página anterior.
   - Ao clicar no nome de um pokemon, a aplicação troca para outra janela, que apresenta informações base do pokemon.
  
-## ------------------------------------- English ---------------------------------------
+ 
+ 
+ 
+### <a> <img src="https://cdn-icons-png.flaticon.com/512/197/197386.png" width="20" height="20"></img> [Em Português](#language-portugues) </a>
+ 
+## ------------------------------------- <a id="language-english"> English </a> ---------------------------------------
 
 This is a Flutter project with the intention of testing skills and knowledge with the framework.
 In addition to the practical use of Clean Code and Clean Architecture, associating this knowledge with a topic I really like, Pokémon.

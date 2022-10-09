@@ -33,6 +33,7 @@ migrate_working_dir/
 /build/
 /windows/
 /linux/
+/macos/
 
 # Symbolication related
 app.*.symbols

@@ -7,17 +7,16 @@ import '../widgets/previous_next_button.dart';
 import 'pokemon_info.dart';
 
 // ignore: must_be_immutable
-class ListPokemon extends StatefulWidget {
-  ListPokemon({required this.baseUrl, Key? key}) : super(key: key);
+class ListSimplesPokemon extends StatefulWidget {
+  ListSimplesPokemon({required this.baseUrl, Key? key}) : super(key: key);
   late String baseUrl;
 
   @override
-  State<ListPokemon> createState() => ListPokemonState();
+  State<ListSimplesPokemon> createState() => ListSimplesPokemonState();
 }
 
-class ListPokemonState extends State<ListPokemon> {
+class ListSimplesPokemonState extends State<ListSimplesPokemon> {
   final PokemonController _pokemonController = PokemonController();
-  // final PokemonDataSourceImpl dataSourceImpl = PokemonDataSourceImpl();
   late String nextPage;
   late String previousPage;
 
@@ -32,8 +31,7 @@ class ListPokemonState extends State<ListPokemon> {
   Future<List<SimplesPokemon>> dataPopulation(String currentPage) async {
     nextPage = await _pokemonController.getNextPage(currentPage);
     previousPage = await _pokemonController.getPreviousPage(currentPage);
-
-    return await _pokemonController.getSimplesPokemonList(currentPage);
+    return _pokemonController.getSimplesPokemonList(currentPage);
   }
 
   @override

@@ -1,12 +1,14 @@
+import 'package:equatable/equatable.dart';
+
 import 'simple_pokemon.dart';
 
-class RequestPagePokemon {
+class RequestPagePokemon extends Equatable {
   final int count;
   final String next;
   final String previous;
   final List<SimplesPokemon> result;
 
-  RequestPagePokemon(
+  const RequestPagePokemon(
       {required this.count,
       required this.next,
       required this.previous,
@@ -19,4 +21,7 @@ class RequestPagePokemon {
         previous: json['previous'].toString(),
         result: toListSimplesPokemon(json['results']));
   }
+
+  @override
+  List<Object?> get props => [count, next, previous];
 }

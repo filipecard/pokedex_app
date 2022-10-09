@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:pokedex_app/features/pokedex/constants.dart';
-import '../pages/list_pokemon.dart';
-import '../styles/text_style.dart';
+import 'package:pokedex_app/features/pokedex/presentation/pages/list_pokemon.dart';
+import 'package:pokedex_app/features/pokedex/presentation/styles/text_style.dart';
 
 Visibility buttonNextOrPrevious(String url, BuildContext context, String name) {
   return Visibility(
@@ -22,7 +22,7 @@ Visibility buttonNextOrPrevious(String url, BuildContext context, String name) {
             Navigator.push(
               context,
               MaterialPageRoute(
-                builder: (context) => ListPokemon(
+                builder: (context) => ListSimplesPokemon(
                   baseUrl: url,
                 ),
               ),

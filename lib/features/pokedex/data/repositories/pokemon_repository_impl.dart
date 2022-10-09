@@ -28,7 +28,7 @@ class PokemonRepositoryImpl implements PokemonRepository {
       return pokemon;
     } on Exception {
       return Pokemon(
-          id: 0, name: "name", sprite: "sprite", stats: [], types: []);
+          id: 0, name: "Not found", sprite: "", stats: [], types: []);
     }
   }
 
@@ -59,7 +59,8 @@ class PokemonRepositoryImpl implements PokemonRepository {
           await pokemonDataSource.getRequestPagePokemon(url);
       return requestPagePokemon;
     } on Exception {
-      return RequestPagePokemon(count: 0, next: "", previous: "", result: []);
+      return const RequestPagePokemon(
+          count: 0, next: "", previous: "", result: []);
     }
   }
 }

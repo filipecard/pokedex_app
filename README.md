@@ -27,15 +27,16 @@ Além do uso prático de Clean Code e Clean Architecture, associando esse conhec
  
  ## Descrição de uso
  
- ### (Botão) Lista de pokemons:
+ ### Lista de pokemons:
   - Levado para outra janela onde terá uma listagem com os nomes dos pokemons.
   - No final da janela terá um/dois botões, de ir para próxima página ou voltar para página anterior.
   - Ao clicar no nome de um pokemon, a aplicação troca para outra janela, que apresenta informações base do pokemon.
+ <a> <img src="https://cdn-icons-png.flaticon.com/512/197/197386.png" width="20" height="20"></img> [Em Português](#language-portugues) </a>
  
+ ### Informação do pokemon:
+   - Levado para outra janela onde terá uma descrição específica do pokemon selecionado.
  
- 
- 
-### <a> <img src="https://cdn-icons-png.flaticon.com/512/197/197386.png" width="20" height="20"></img> [Em Português](#language-portugues) </a>
+![Alt text](relative/path/to/img.jpg?raw=true "Title")
  
 ## ------------------------------------- <a id="language-english"> English </a> ---------------------------------------
 
@@ -55,7 +56,10 @@ In addition to the practical use of Clean Code and Clean Architecture, associati
  
  ## Usability description
  
- ### (Button) Pokemon List:
+ ### Pokemon List:
   - It takes you to another window where you will have a list of pokemon names.
   - At the end of the window one/two buttons you will have to the next page or go back to the previous page.
   - When clicking on a pokemon's name, the application switches to another window, which displays basic pokemon information.
+  
+ ### Pokemon Information:
+  - Taken to another window where you will have a specific description of the selected pokemon.

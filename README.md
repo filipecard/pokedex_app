@@ -28,16 +28,24 @@ Além do uso prático de Clean Code e Clean Architecture, associando esse conhec
  ## Descrição de uso
  
  ### Lista de pokemons:
-  - Levado para outra janela onde terá uma listagem com os nomes dos pokemons.
-  - No final da janela terá um/dois botões, de ir para próxima página ou voltar para página anterior.
-  - Ao clicar no nome de um pokemon, a aplicação troca para outra janela, que apresenta informações base do pokemon.
- <a> <img src="https://cdn-icons-png.flaticon.com/512/197/197386.png" width="20" height="20"></img> [Em Português](#language-portugues) </a>
  
+ - Levado para outra janela onde terá uma listagem com os nomes dos pokemons.
+ - No final da janela terá um/dois botões, de ir para próxima página ou voltar para página anterior.
+ - Ao clicar no nome de um pokemon, a aplicação troca para outra janela, que apresenta informações base do pokemon.
+
+ <img src="images/list_pokemon.png" width="250" > </img>
+
+
+
+
  ### Informação do pokemon:
    - Levado para outra janela onde terá uma descrição específica do pokemon selecionado.
  
-![Alt text](relative/path/to/img.jpg?raw=true "Title")
  
+ <img src="images/data_pokemon.png" width="250" > </img>
+
+
+<a> <img src="https://cdn-icons-png.flaticon.com/512/197/197386.png" width="20" height="20"></img> [Em Português](#language-portugues) </a>
 ## ------------------------------------- <a id="language-english"> English </a> ---------------------------------------
 
 This is a Flutter project with the intention of testing skills and knowledge with the framework.
@@ -61,5 +69,12 @@ In addition to the practical use of Clean Code and Clean Architecture, associati
   - At the end of the window one/two buttons you will have to the next page or go back to the previous page.
   - When clicking on a pokemon's name, the application switches to another window, which displays basic pokemon information.
   
+  
+  
+  <img src="images/list_pokemon.png" width="250" > </img>
+  
  ### Pokemon Information:
   - Taken to another window where you will have a specific description of the selected pokemon.
+  
+  
+<img src="images/data_pokemon.png" width="250" > </img>

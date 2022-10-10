@@ -23,6 +23,7 @@ Além do uso prático de Clean Code e Clean Architecture, associando esse conhec
  
  > **cupertino_icons: ^1.0.2**
  
+ > **equatable: ^2.0.5**
  
  ## Descrição de uso
  
@@ -50,6 +51,7 @@ In addition to the practical use of Clean Code and Clean Architecture, associati
  
  > **cupertino_icons: ^1.0.2**
  
+ > **equatable: ^2.0.5**
  
  ## Usability description
  

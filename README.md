@@ -13,6 +13,8 @@
 Esse é um projeto feito com Flutter com intenção de testar habilidades e conhecimentos com o framework.
 Além do uso prático de Clean Code e Clean Architecture, associando esse conhecimento com um tema no qual gosto muito, Pokemon.
 
+## API
+ > https://pokeapi.co/
 
 ## Configurações do ambiente
 
@@ -50,6 +52,9 @@ Além do uso prático de Clean Code e Clean Architecture, associando esse conhec
 
 This is a Flutter project with the intention of testing skills and knowledge with the framework.
 In addition to the practical use of Clean Code and Clean Architecture, associating this knowledge with a topic I really like, Pokémon.
+
+## API
+ > https://pokeapi.co/
 
 ## Environment Settings
 
